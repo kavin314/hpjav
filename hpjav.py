@@ -29,9 +29,9 @@ urllib3.disable_warnings()
 #search_word="EBOD-68"
 #search_word="希崎 IPX-3"
 #search_word="DOCP-15"
-#search_word="佐々木あき"
-search_word="美谷朱里 MIAA"
-search_word=""
+search_word="佐々木あき"
+#search_word="美谷朱里"
+#search_word=""
 
 hpjav_search_url = "https://hpjav.tv/tw/?s="
 hpjav_domain = "https://hpjav.tv"
@@ -43,8 +43,8 @@ title_List = []
 decode_list = []
 hpjav_host_url_list=[]
 post_list_index = 0
-#isDownload = False
-isDownload = True
+isDownload = False
+#isDownload = True
 
 today=datetime.datetime.now().strftime('%Y/%m/%d')
 print("Today is [" + today + "]")
@@ -165,10 +165,11 @@ def datecompare(date1,date2):
     #date2 = "2019/08/01"
     newdate1 = time.strptime(date1, "%Y/%m/%d")
     newdate2 = time.strptime(date2, "%Y/%m/%d")
-    print(date1 > date2)
-    return (date1 > date2)
+    #print(newdate1 > newdate2)
+    return (newdate1 > newdate2)
 
 def get_post_list():
+    print("start search for hpjav at keyword -->"+search_word)
     rs = requests.session()
     res = rs.get(hpjav_search_url+search_word, verify=False)
     soup = BeautifulSoup(res.text,'html.parser')
@@ -321,6 +322,16 @@ def get_check_host_url(url):
         #print("Not found")
         return ""
 
+def filterdate(post_list):
+    item_list=[]
+    for item in post_list:
+        if (datecompare(item['date'], '2019/08/01')):
+            print("date than 2019/08/01")
+            item_list.append(item)
+        else:
+            print("date not than 2019/08/01")
+    return item_list
+
 def get_host_url(post_list):
     if (len(post_list) != 0):
         print("post_list amount:" + str(len(post_list)))
@@ -397,8 +408,9 @@ def b64DecodeUnicode(str) {
 
 #主程式
 if  __name__ == "__main__":
-    os.system("sudo rm -rf /tmp/.com.google.Chrome.*")
+    os.system("rm -rf .com.google.Chrome.*")
     print(__name__)
     post_list=get_post_list()
+    post_list=filterdate(post_list)
     get_host_url(post_list)
 
