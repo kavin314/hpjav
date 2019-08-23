@@ -10,7 +10,7 @@ from tqdm import tqdm
 ftp_server='49.159.161.157'
 ftp_port = 1021
 ftp_user='kavin'
-ftp_password='0917623321'
+ftp_password=''
 ftp_remote_dir='/Public/01_Personal/Kavin/01_Personal/TEMP8/'
 #ftp_remote_dir='/Download/'
 bufsize = 1024
