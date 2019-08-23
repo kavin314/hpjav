@@ -31,6 +31,7 @@ urllib3.disable_warnings()
 #search_word="DOCP-15"
 #search_word="佐々木あき"
 search_word="美谷朱里 MIAA"
+search_word=""
 
 hpjav_search_url = "https://hpjav.tv/tw/?s="
 hpjav_domain = "https://hpjav.tv"
