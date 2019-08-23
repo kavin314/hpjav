@@ -27,10 +27,10 @@ urllib3.disable_warnings()
 #search_word="ABP-852"
 #search_word="GNE-223"
 #search_word="EBOD-68"
-#search_word="希崎 IPX-3"
+search_word="希崎"
 #search_word="DOCP-15"
 #search_word="佐々木あき"
-search_word="美谷朱里"
+#search_word="美谷朱里"
 #search_word=""
 
 hpjav_search_url = "https://hpjav.tv/tw/?s="
